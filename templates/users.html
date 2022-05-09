@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>shop_builder_assembly</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}"> 
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css')}}">
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4" style="justify-content: center; text-align: center;">Select User</h1>
+      <a class="btn btn-primary" id="'home-button" href="{{url_for('index')}}" role="button">Home</a>
+    </div>
+  </div>
+ 
+  <div class="w-25 p-3 mx-auto">
+    <table class="table"> 
+      <thead class="thead-light">
+        <th class="text-center" scope="col">User</th>
+        <th class="text-center" scop="col">Select</th>
+      </tr>
+      {% for user in users%}
+      <tr>
+        <td class="text-center" id="number">{{user}}</td>
+        <td class="text-center">
+          <form method="POST" action="{{ url_for ('assembly', number=number, name=name, user=user)}}">
+            <input type="submit" value="Select" class="btn btn-secondary">
+        </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table> 
+  </div>
+ 
+</body>
+</html>
